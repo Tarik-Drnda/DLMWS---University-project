@@ -108,16 +108,16 @@ namespace PRIII.WinForm
                 valid = false;
 
             }
-            else if (kontrola is TextBox && !(kontrola as TextBox).Text.Prazan())
+            else if (kontrola is TextBox && (kontrola as TextBox).Text.Prazan())
             {
                 valid = false;
             }
-            if (valid==false)
+            if (!valid)
             {
                 err.SetError(kontrola, Resursi.Get(poruka));
-                return false;
+                return valid;
             }
-            return true;
+            return valid;
         }
     }
     public static class Ekstenzije

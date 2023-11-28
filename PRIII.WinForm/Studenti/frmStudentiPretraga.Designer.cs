@@ -46,26 +46,32 @@
             dgvStudenti.AllowUserToOrderColumns = true;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Semestar, Aktivan });
-            dgvStudenti.Location = new Point(12, 12);
+            dgvStudenti.Location = new Point(14, 16);
+            dgvStudenti.Margin = new Padding(3, 4, 3, 4);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
+            dgvStudenti.RowHeadersWidth = 51;
             dgvStudenti.RowTemplate.Height = 25;
             dgvStudenti.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvStudenti.Size = new Size(649, 238);
+            dgvStudenti.Size = new Size(742, 317);
             dgvStudenti.TabIndex = 0;
+            dgvStudenti.CellContentClick += dgvStudenti_CellContentClick;
             // 
             // Indeks
             // 
             Indeks.DataPropertyName = "Indeks";
             Indeks.HeaderText = "Indeks";
+            Indeks.MinimumWidth = 6;
             Indeks.Name = "Indeks";
             Indeks.ReadOnly = true;
+            Indeks.Width = 125;
             // 
             // Ime
             // 
             Ime.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Ime.DataPropertyName = "Ime";
             Ime.HeaderText = "Ime";
+            Ime.MinimumWidth = 6;
             Ime.Name = "Ime";
             Ime.ReadOnly = true;
             // 
@@ -74,6 +80,7 @@
             Prezime.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Prezime.DataPropertyName = "Prezime";
             Prezime.HeaderText = "Prezime";
+            Prezime.MinimumWidth = 6;
             Prezime.Name = "Prezime";
             Prezime.ReadOnly = true;
             // 
@@ -82,6 +89,7 @@
             DatumRodjenja.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DatumRodjenja.DataPropertyName = "DatumRodjenja";
             DatumRodjenja.HeaderText = "DatumRodjenja";
+            DatumRodjenja.MinimumWidth = 6;
             DatumRodjenja.Name = "DatumRodjenja";
             DatumRodjenja.ReadOnly = true;
             // 
@@ -89,23 +97,28 @@
             // 
             Semestar.DataPropertyName = "Semestar";
             Semestar.HeaderText = "Semestar";
+            Semestar.MinimumWidth = 6;
             Semestar.Name = "Semestar";
             Semestar.ReadOnly = true;
+            Semestar.Width = 125;
             // 
             // Aktivan
             // 
             Aktivan.DataPropertyName = "Aktivan";
             Aktivan.HeaderText = "Aktivan";
+            Aktivan.MinimumWidth = 6;
             Aktivan.Name = "Aktivan";
             Aktivan.ReadOnly = true;
             Aktivan.Resizable = DataGridViewTriState.True;
             Aktivan.SortMode = DataGridViewColumnSortMode.Automatic;
+            Aktivan.Width = 125;
             // 
             // btnStudentNovi
             // 
-            btnStudentNovi.Location = new Point(549, 265);
+            btnStudentNovi.Location = new Point(627, 353);
+            btnStudentNovi.Margin = new Padding(3, 4, 3, 4);
             btnStudentNovi.Name = "btnStudentNovi";
-            btnStudentNovi.Size = new Size(112, 23);
+            btnStudentNovi.Size = new Size(128, 31);
             btnStudentNovi.TabIndex = 1;
             btnStudentNovi.Text = "Novi Student";
             btnStudentNovi.UseVisualStyleBackColor = true;
@@ -113,11 +126,12 @@
             // 
             // frmStudentiPretraga
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(673, 316);
+            ClientSize = new Size(769, 421);
             Controls.Add(btnStudentNovi);
             Controls.Add(dgvStudenti);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "frmStudentiPretraga";
             Text = "Studenti Pretraga";
             Load += frmStudentiPretraga_Load;

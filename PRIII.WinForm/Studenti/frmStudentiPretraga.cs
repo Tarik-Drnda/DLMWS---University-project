@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FIT.Infrastucture;
+using PRIII___DATA;
 
 namespace PRIII.WinForm.Studenti
 {
@@ -33,9 +34,17 @@ namespace PRIII.WinForm.Studenti
         private void btnStudentNovi_Click(object sender, EventArgs e)
         {
             frmStudentNovi frm = new frmStudentNovi();
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                UcitajStudente();
+            }
         }
 
-
+        private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var odabraniStudent= dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            frmStudentNovi frmEdit = new frmStudentNovi(odabraniStudent);
+            frmEdit.ShowDialog();
+        }
     }
 }
