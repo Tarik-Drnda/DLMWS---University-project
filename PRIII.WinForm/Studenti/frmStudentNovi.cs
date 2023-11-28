@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FIT.Infrastucture;
+using PRIII.WinForm.Helpers;
 using PRIII___DATA;
 
 namespace PRIII.WinForm.Studenti
@@ -18,6 +19,7 @@ namespace PRIII.WinForm.Studenti
         {
             InitializeComponent();
             GenerisiBrojIndeksa();
+            txtLozinka.Text = Generator.GetLozinka();
         }
 
         private void btnOdabirSlike_Click(object sender, EventArgs e)
@@ -26,17 +28,6 @@ namespace PRIII.WinForm.Studenti
             {
                 pbSlika.Image = Image.FromFile(ofdOdabirSlike.FileName);
             }
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
 
         }
 
@@ -69,7 +60,7 @@ namespace PRIII.WinForm.Studenti
             var ime = txtIme.Text.ToLower();
             var prezime = txtPrezime.Text.ToLower();
             txtEmail.Text = $"{ime}.{prezime}" + Resursi.Get(Kljucevi.EmailDomain);
-            txtIndeks.Text = $"{ime}.{prezime}";
+
 
         }
 
@@ -77,5 +68,7 @@ namespace PRIII.WinForm.Studenti
         {
             GenerisiPodatke();
         }
+
+
     }
 }

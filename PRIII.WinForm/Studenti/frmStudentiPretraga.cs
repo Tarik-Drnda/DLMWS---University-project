@@ -34,5 +34,7 @@ namespace PRIII.WinForm.Studenti
             frmStudentNovi frm = new frmStudentNovi();
             frm.ShowDialog();
         }
+
+
     }
 }

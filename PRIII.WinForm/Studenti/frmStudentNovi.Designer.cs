@@ -88,7 +88,6 @@
             groupBox2.Size = new Size(482, 246);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Enter += groupBox2_Enter;
             // 
             // label7
             // 
@@ -152,6 +151,7 @@
             txtLozinka.Location = new Point(255, 94);
             txtLozinka.Margin = new Padding(3, 2, 3, 2);
             txtLozinka.Name = "txtLozinka";
+            txtLozinka.PasswordChar = '*';
             txtLozinka.Size = new Size(211, 25);
             txtLozinka.TabIndex = 5;
             // 
@@ -255,7 +255,7 @@
             // ofdOdabirSlike
             // 
             ofdOdabirSlike.FileName = "openFileDialog1";
-            ofdOdabirSlike.FileOk += openFileDialog1_FileOk;
+            ofdOdabirSlike.Filter = "*.jpg | *.png";
             // 
             // btnOdabirSlike
             // 
