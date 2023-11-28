@@ -76,10 +76,10 @@ namespace FIT.Infrastucture
                    Lozinka = "admin",
                    Prezime = "Music",
                    DatumRodjenja = new DateTime(2000, 2, 2),
-                   Semestar = 1,
-                   slika = null
-               }
-    };
+                 Semestar = 1,
+                 slika = null
+           }
+           };
        }
 
        private static List<Korisnik> GenerisiKorisnike()
