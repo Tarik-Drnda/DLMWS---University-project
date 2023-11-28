@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentNovi));
             btnSpasi = new Button();
             groupBox2 = new GroupBox();
+            btnNovaLozinka = new Button();
             label7 = new Label();
             label6 = new Label();
             dtpDatumRodjenja = new DateTimePicker();
@@ -49,8 +52,10 @@
             pbSlika = new PictureBox();
             ofdOdabirSlike = new OpenFileDialog();
             btnOdabirSlike = new Button();
+            errNoviStudent = new ErrorProvider(components);
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errNoviStudent).BeginInit();
             SuspendLayout();
             // 
             // btnSpasi
@@ -62,9 +67,11 @@
             btnSpasi.TabIndex = 7;
             btnSpasi.Text = "Spasi";
             btnSpasi.UseVisualStyleBackColor = true;
+            btnSpasi.Click += btnSpasi_Click;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(btnNovaLozinka);
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(dtpDatumRodjenja);
@@ -88,6 +95,17 @@
             groupBox2.Size = new Size(482, 246);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
+            // 
+            // btnNovaLozinka
+            // 
+            btnNovaLozinka.BackgroundImage = (Image)resources.GetObject("btnNovaLozinka.BackgroundImage");
+            btnNovaLozinka.BackgroundImageLayout = ImageLayout.Stretch;
+            btnNovaLozinka.Location = new Point(441, 121);
+            btnNovaLozinka.Name = "btnNovaLozinka";
+            btnNovaLozinka.Size = new Size(25, 23);
+            btnNovaLozinka.TabIndex = 26;
+            btnNovaLozinka.UseVisualStyleBackColor = true;
+            btnNovaLozinka.Click += btnNovaLozinka_Click;
             // 
             // label7
             // 
@@ -267,6 +285,10 @@
             btnOdabirSlike.UseVisualStyleBackColor = true;
             btnOdabirSlike.Click += btnOdabirSlike_Click;
             // 
+            // errNoviStudent
+            // 
+            errNoviStudent.ContainerControl = this;
+            // 
             // frmStudentNovi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -283,6 +305,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errNoviStudent).EndInit();
             ResumeLayout(false);
         }
 
@@ -309,5 +332,7 @@
         private PictureBox pbSlika;
         private OpenFileDialog ofdOdabirSlike;
         private Button btnOdabirSlike;
+        private Button btnNovaLozinka;
+        private ErrorProvider errNoviStudent;
     }
 }

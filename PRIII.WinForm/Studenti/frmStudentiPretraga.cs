@@ -26,6 +26,7 @@ namespace PRIII.WinForm.Studenti
 
         private void UcitajStudente()
         {
+            dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = InMemoryDB.Studenti;
         }
 

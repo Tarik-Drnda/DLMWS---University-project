@@ -95,11 +95,26 @@ namespace PRIII.WinForm
     }
     public class Validator
     {
-        public static bool ProvjeriUnos(TextBox textBox, ErrorProvider err, string poruka)
+        public static bool ProvjeriUnos(Control kontrola, ErrorProvider err, string poruka)
         {
-            if (textBox.Text.Prazan())
+            bool valid = true;
+            if (kontrola is PictureBox && (kontrola as PictureBox).Image == null)
             {
-                err.SetError(textBox, "Obavezna vrijednost!");
+                valid = false;
+
+            }
+            else if (kontrola is ComboBox && (kontrola as ComboBox).SelectedIndex < 0)
+            {
+                valid = false;
+
+            }
+            else if (kontrola is TextBox && !(kontrola as TextBox).Text.Prazan())
+            {
+                valid = false;
+            }
+            if (valid==false)
+            {
+                err.SetError(kontrola, Resursi.Get(poruka));
                 return false;
             }
             return true;

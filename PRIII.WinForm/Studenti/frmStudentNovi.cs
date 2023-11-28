@@ -19,9 +19,13 @@ namespace PRIII.WinForm.Studenti
         {
             InitializeComponent();
             GenerisiBrojIndeksa();
-            txtLozinka.Text = Generator.GetLozinka();
+            GenerisiLozinku();
         }
 
+        private void GenerisiLozinku()
+        {
+            txtLozinka.Text = Generator.GetLozinka();
+        }
         private void btnOdabirSlike_Click(object sender, EventArgs e)
         {
             if (ofdOdabirSlike.ShowDialog() == DialogResult.OK)
@@ -69,6 +73,45 @@ namespace PRIII.WinForm.Studenti
             GenerisiPodatke();
         }
 
+        private void btnNovaLozinka_Click(object sender, EventArgs e)
+        {
+            GenerisiLozinku();
+        }
 
+        private void btnSpasi_Click(object sender, EventArgs e)
+        {
+            if (ValidanUnos())
+            {
+                var student = new Student()
+                {
+                    Aktivan=cbAktivan.Checked,
+                    DatumRodjenja = dtpDatumRodjenja.Value,
+                    Email=txtEmail.Text,
+                    Id=InMemoryDB.Studenti.Count+1,
+                    Indeks=txtIndeks.Text,
+                    Lozinka=txtLozinka.Text,
+                    Prezime=txtPrezime.Text,
+                    Semestar = (int)cmbSemestar.SelectedValue,
+                    slika=pbSlika.Image
+
+                };
+
+                InMemoryDB.Studenti.Add(student);
+                this.DialogResult=DialogResult.OK;
+                Close();
+            }
+        }
+
+        private bool ValidanUnos()
+        {
+            return Validator.ProvjeriUnos(txtIme, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
+                   Validator.ProvjeriUnos(txtPrezime, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
+                   Validator.ProvjeriUnos(txtEmail, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
+                   Validator.ProvjeriUnos(cmbSemestar, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
+                   Validator.ProvjeriUnos(txtLozinka, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
+                   Validator.ProvjeriUnos(txtIndeks, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue))  &&
+            Validator.ProvjeriUnos(pbSlika, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue));
+
+        }
     }
 }
