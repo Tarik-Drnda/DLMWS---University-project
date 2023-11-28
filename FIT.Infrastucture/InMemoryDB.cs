@@ -20,14 +20,14 @@ namespace FIT.Infrastucture
                new Semestar()
                {
                    Id=1,
-                   Aktivan=true,
+                   Aktivan=false,
                    Oznaka="1.Sem",
                    Opis="Prvi semestar I ciklusa studija"
                },
                new Semestar()
                {
                    Id=2,
-                   Aktivan=true,
+                   Aktivan=false,
                    Oznaka="2.Sem",
                    Opis="Prvi semestar II ciklusa studija"
                },

@@ -19,8 +19,8 @@ namespace PRIII___P_LAPTOP
         }
         private static void VrijednostiReference()
         {
-            Student denis1 = new Student("IB220069", "tARUJ", "dRNDA");
-            Student denis2 = denis1;
+            cStudent denis1 = new cStudent("IB220069", "tARUJ", "dRNDA");
+            cStudent denis2 = denis1;
 
             sStudent jasmin1 = new sStudent() { Indeks = "IB220069", Ime = "Tarik", Prezime = "Drnda" };
             sStudent jasmin2 = jasmin1;
@@ -28,13 +28,13 @@ namespace PRIII___P_LAPTOP
         private static void Slojevi()
         {
             StudentService studentService = new StudentService();
-            Student student = studentService.GetByBrojIndeksa("IB22022");
+            cStudent student = studentService.GetByBrojIndeksa("IB22022");
             Console.WriteLine(student);
 
         }
         public static void Override()
         {
-            Student denis = new Student("IB220069", "tARUJ", "dRNDA");
+            cStudent denis = new cStudent("IB220069", "tARUJ", "dRNDA");
 
             Console.WriteLine(denis);
         }
@@ -49,8 +49,8 @@ namespace PRIII___P_LAPTOP
 
         private static void FromObject(object obj)
         {
-            if (obj is Student)
-                (obj as Student).PredstaviSe();
+            if (obj is cStudent)
+                (obj as cStudent).PredstaviSe();
             else if (obj is int)
                 Console.WriteLine("Int");
         }

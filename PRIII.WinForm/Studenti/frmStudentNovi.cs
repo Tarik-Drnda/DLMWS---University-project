@@ -15,11 +15,13 @@ namespace PRIII.WinForm.Studenti
 {
     public partial class frmStudentNovi : Form
     {
-        public frmStudentNovi()
+        private Student _std;
+        public frmStudentNovi(Student std=null)
         {
             InitializeComponent();
             GenerisiBrojIndeksa();
             GenerisiLozinku();
+            _std = std ?? new Student();
         }
 
         private void GenerisiLozinku()
@@ -38,6 +40,23 @@ namespace PRIII.WinForm.Studenti
         private void frmStudentNovi_Load(object sender, EventArgs e)
         {
             UcitajSemestre();
+            if(_std.Id!=0)
+            {
+                UcitajPodatkeOStudentu();
+            }
+        }
+
+        private void UcitajPodatkeOStudentu()
+        {
+            txtIme.Text = _std.Ime;
+            dtpDatumRodjenja.Value=_std.DatumRodjenja;
+            txtEmail.Text = _std.Email;
+            txtLozinka.Text= _std.Lozinka;
+            cbAktivan.Checked=_std.Aktivan;
+            cmbSemestar.SelectedIndex = _std.Semestar;
+            txtPrezime.Text= _std.Prezime;
+            pbSlika.Image = _std.slika;
+            txtIndeks.Text= _std.Indeks;
         }
 
         private void UcitajSemestre()
@@ -82,21 +101,21 @@ namespace PRIII.WinForm.Studenti
         {
             if (ValidanUnos())
             {
-                var student = new Student()
+                _std.Aktivan = cbAktivan.Checked;
+                _std.DatumRodjenja = dtpDatumRodjenja.Value;
+                _std.Email = txtEmail.Text;
+                _std.Indeks = txtIndeks.Text;
+                _std.Lozinka = txtLozinka.Text;
+                _std.Prezime = txtPrezime.Text;
+                _std.Semestar = (int)cmbSemestar.SelectedValue;
+                _std.slika = pbSlika.Image;
+                _std.Ime = txtIme.Text;
+
+                if (_std.Id == 0)
                 {
-                    Aktivan=cbAktivan.Checked,
-                    DatumRodjenja = dtpDatumRodjenja.Value,
-                    Email=txtEmail.Text,
-                    Id=InMemoryDB.Studenti.Count+1,
-                    Indeks=txtIndeks.Text,
-                    Lozinka=txtLozinka.Text,
-                    Prezime=txtPrezime.Text,
-                    Semestar = (int)cmbSemestar.SelectedValue,
-                    slika=pbSlika.Image
-
-                };
-
-                InMemoryDB.Studenti.Add(student);
+                    _std.Id = InMemoryDB.Studenti.Count+1;
+                    InMemoryDB.Studenti.Add(_std);
+                }
                 this.DialogResult=DialogResult.OK;
                 Close();
             }
@@ -110,7 +129,7 @@ namespace PRIII.WinForm.Studenti
                    Validator.ProvjeriUnos(cmbSemestar, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
                    Validator.ProvjeriUnos(txtLozinka, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
                    Validator.ProvjeriUnos(txtIndeks, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue))  &&
-            Validator.ProvjeriUnos(pbSlika, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue));
+                   Validator.ProvjeriUnos(pbSlika, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue));
 
         }
     }
