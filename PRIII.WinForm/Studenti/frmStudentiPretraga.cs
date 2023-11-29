@@ -123,8 +123,8 @@ namespace PRIII.WinForm.Studenti
 
         private void VarObj()
         {
-            var indeks1 = "IB220069";// PREPORZNA tip automatski - ne moze biti povratna vrijednost ili tip parametra
-            object indeks2 = "IB190091";// moramo kastati
+            var indeks1 = "IB220069"; // PREPORZNA tip automatski - ne moze biti povratna vrijednost ili tip parametra
+            object indeks2 = "IB190091"; // moramo kastati
 
 
         }
@@ -133,6 +133,7 @@ namespace PRIII.WinForm.Studenti
         {
             obj.NepostojecaMetoda();
         }
+
         private void UcitajStudente()
         {
             dgvStudenti.DataSource = null;
@@ -158,13 +159,14 @@ namespace PRIII.WinForm.Studenti
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             var filter = txtFilter.Text.ToLower();
-           var rezultat = InMemoryDB.Studenti.Where(student =>
+            var rezultat = InMemoryDB.Studenti.Where(student =>
                 student.Ime.ToLower().Contains(filter) ||
                 student.Prezime.ToLower().Contains(filter) ||
                 student.Indeks.ToLower().Contains(filter)).ToList();
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource= rezultat;
+            dgvStudenti.DataSource = rezultat;
         }
+
     }
 
     public class EksterniTip
@@ -183,5 +185,6 @@ namespace PRIII.WinForm.Studenti
         public string Prezime { get; set; }
         public int semestar { get; set; }
         public DateTime DatumPosljednjegPristupa { get; set; }
+
     }
 }

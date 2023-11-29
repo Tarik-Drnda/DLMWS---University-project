@@ -47,7 +47,8 @@
             dgvStudenti.AllowUserToOrderColumns = true;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Semestar, Aktivan });
-            dgvStudenti.Location = new Point(12, 37);
+            dgvStudenti.Location = new Point(10, 50);
+            dgvStudenti.Margin = new Padding(3, 2, 3, 2);
             dgvStudenti.Name = "dgvStudenti";
             dgvStudenti.ReadOnly = true;
             dgvStudenti.RowHeadersWidth = 51;
@@ -115,7 +116,8 @@
             // 
             // btnStudentNovi
             // 
-            btnStudentNovi.Location = new Point(549, 281);
+            btnStudentNovi.Location = new Point(547, 292);
+            btnStudentNovi.Margin = new Padding(3, 2, 3, 2);
             btnStudentNovi.Name = "btnStudentNovi";
             btnStudentNovi.Size = new Size(112, 23);
             btnStudentNovi.TabIndex = 1;
@@ -125,7 +127,8 @@
             // 
             // txtFilter
             // 
-            txtFilter.Location = new Point(12, 8);
+            txtFilter.Location = new Point(10, 11);
+            txtFilter.Margin = new Padding(3, 2, 3, 2);
             txtFilter.Name = "txtFilter";
             txtFilter.Size = new Size(649, 23);
             txtFilter.TabIndex = 2;
@@ -135,7 +138,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(673, 316);
+            ClientSize = new Size(668, 326);
             Controls.Add(txtFilter);
             Controls.Add(btnStudentNovi);
             Controls.Add(dgvStudenti);
