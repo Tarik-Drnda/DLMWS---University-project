@@ -25,9 +25,9 @@ namespace PRIII.WinForm.Studenti
         {
             UcitajStudente();
             //VarObj();
-            //Dynamic();
+            Dynamic();
             //AnonimniTipovi();
-            Linq();
+            //Linq();
         }
 
         private void Linq()
@@ -98,6 +98,8 @@ namespace PRIII.WinForm.Studenti
             expObj.Ime = "Denis";
             expObj.Prosjek = 6.7;
 
+            
+
             foreach (var par in expObj)
             {
                 MessageBox.Show($"{par.Key}->{par.Value}");
@@ -114,6 +116,7 @@ namespace PRIII.WinForm.Studenti
             //{
             //    MessageBox.Show($"{par.Key}->{par.Value}");
             //}
+            
         }
 
         private dynamic GetObjekatSaNepostojecomMetodom()
@@ -125,8 +128,13 @@ namespace PRIII.WinForm.Studenti
         {
             var indeks1 = "IB220069"; // PREPORZNA tip automatski - ne moze biti povratna vrijednost ili tip parametra
             object indeks2 = "IB190091"; // moramo kastati
+            PrikaziInfo(indeks2);
 
+        }
 
+        private void PrikaziInfo(object obj)
+        {
+            
         }
 
         private void PrikaziDynamic(dynamic obj)
@@ -159,14 +167,15 @@ namespace PRIII.WinForm.Studenti
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             var filter = txtFilter.Text.ToLower();
-            var rezultat = InMemoryDB.Studenti.Where(student =>
-                student.Ime.ToLower().Contains(filter) ||
-                student.Prezime.ToLower().Contains(filter) ||
-                student.Indeks.ToLower().Contains(filter)).ToList();
+            var rezultat = InMemoryDB.Studenti.Where(Sadrzi).ToList();
+
             dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = rezultat;
         }
-
+        private bool Sadrzi(Student student) =>
+            student.Ime.ToLower().Contains(txtFilter.Text.ToLower()) ||
+                student.Prezime.ToLower().Contains(txtFilter.Text.ToLower()) ||
+                student.Indeks.ToLower().Contains(txtFilter.Text.ToLower());
     }
 
     public class EksterniTip

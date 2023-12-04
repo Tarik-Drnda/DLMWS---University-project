@@ -1,5 +1,6 @@
 ﻿using PRIII___DATA;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FIT.Infrastucture
 {
-    public class InMemoryDB
+    public class InMemoryDB : IEnumerable<Student>
     {
        public static List<Korisnik> Korisnici = GenerisiKorisnike();
        public static List<Student> Studenti = GenrisiStudente();
@@ -97,6 +98,21 @@ namespace FIT.Infrastucture
             List<Korisnik> lista = new List<Korisnik>();
             lista.Add(korisnik);
             return lista;
+
+
         }
+
+       public IEnumerator<Student> GetEnumerator()
+       {
+           for (int i = 0; i < Studenti.Count; i++)
+           {
+               yield return Studenti[i];
+           }
+        }
+
+       IEnumerator IEnumerable.GetEnumerator()
+       {
+           return GetEnumerator();
+       }
     }
 }

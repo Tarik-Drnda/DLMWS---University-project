@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PRIII___DATA
 {
-    public class Student
+    public class Student 
     {
         public int Id { get; set; } 
         public string Lozinka { get; set; }
@@ -20,6 +20,8 @@ namespace PRIII___DATA
         public string Email { get; set; }
         public bool Aktivan { get; set; }
         public int Semestar { get; set; } // semestarId
+     
+
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime}";
