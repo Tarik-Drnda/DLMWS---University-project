@@ -21,11 +21,31 @@ namespace PRIII___DATA
         public bool Aktivan { get; set; }
         public int Semestar { get; set; } // semestarId
      
+        public int GradId { get; set; }
+        public Grad Grad { get; set; }
+        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
 
+        public Student()
+        {
+            PolozeniPredmeti=new List<PolozeniPredmet>();
+        }
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime}";
         }
+
+    }
+
+    public class PolozeniPredmet
+    {
+        public int Id { get; set; }
+        public int StudentId { get; set; }
+        public int PredmetId { get; set; }
+        public int Ocjena {get; set; }
+        public Student Student { get; set; }    
+        public Predmet Predmet { get; set; }    
+        public DateTime DatumPolaganja { get; set; }
+        public string Napomena { get; set; }
 
     }
 }

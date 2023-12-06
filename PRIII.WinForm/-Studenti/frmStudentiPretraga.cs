@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FIT.Infrastucture;
+using PRIII.WinForm._Studenti;
 using PRIII___DATA;
 
 namespace PRIII.WinForm.Studenti
@@ -98,7 +99,7 @@ namespace PRIII.WinForm.Studenti
             expObj.Ime = "Denis";
             expObj.Prosjek = 6.7;
 
-            
+
 
             foreach (var par in expObj)
             {
@@ -116,7 +117,7 @@ namespace PRIII.WinForm.Studenti
             //{
             //    MessageBox.Show($"{par.Key}->{par.Value}");
             //}
-            
+
         }
 
         private dynamic GetObjekatSaNepostojecomMetodom()
@@ -134,7 +135,7 @@ namespace PRIII.WinForm.Studenti
 
         private void PrikaziInfo(object obj)
         {
-            
+
         }
 
         private void PrikaziDynamic(dynamic obj)
@@ -160,8 +161,18 @@ namespace PRIII.WinForm.Studenti
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
-            frmStudentNovi frmEdit = new frmStudentNovi(odabraniStudent);
-            frmEdit.ShowDialog();
+            Form forma = null;
+
+            if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
+            {
+                forma = new frmStudentiPredmeti(odabraniStudent);
+            }
+            else
+            {
+                forma = new frmStudentNovi(odabraniStudent);
+            }
+
+            forma.ShowDialog();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
