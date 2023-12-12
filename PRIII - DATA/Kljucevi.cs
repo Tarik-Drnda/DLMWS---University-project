@@ -15,5 +15,6 @@ namespace PRIII___DATA
         public const string Warning = "Warning";
         public const string MandatoryValue = "Mandatory Value";
         public const string EmailDomain = "EmailDomain";
+        public const string DuplicatedValue = "Duplicated Value";
     }
 }

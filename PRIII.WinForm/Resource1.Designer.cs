@@ -70,6 +70,15 @@ namespace PRIII.WinForm {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vrijednost koju ste odabrali se već nalazi u BP!.
+        /// </summary>
+        internal static string Duplicated_Value {
+            get {
+                return ResourceManager.GetString("Duplicated Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @edu.fit.ba.
         /// </summary>
         internal static string EmailDomain {

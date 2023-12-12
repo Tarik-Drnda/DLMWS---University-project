@@ -120,13 +120,6 @@ namespace PRIII.WinForm
             return valid;
         }
     }
-    public static class Ekstenzije
-    {
-        public static bool Prazan(this string sadrzaj)
-        {
-            return string.IsNullOrWhiteSpace(sadrzaj);
-        }
-    }
     public class Aplikacija
     {
         public static Korisnik PrijavljeniKorisnik { get; set; }

@@ -28,25 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dgvPolozeniPredmeti = new DataGridView();
             Predmet = new DataGridViewTextBoxColumn();
-            Ocjena = new DataGridViewTextBoxColumn();
             DatumPolaganja = new DataGridViewTextBoxColumn();
+            Ocjena = new DataGridViewTextBoxColumn();
             lblPredmet = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            cmbPredmeti = new ComboBox();
+            cmbOcjene = new ComboBox();
             lblOcjena = new Label();
-            comboBox3 = new ComboBox();
             lblDatumPolaganja = new Label();
-            button1 = new Button();
+            btnDodaj = new Button();
+            dtmPolaganje = new DateTimePicker();
+            errPolozeniPredmet = new ErrorProvider(components);
+            lblImePrezime = new Label();
+            pcbProfilna = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvPolozeniPredmeti).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errPolozeniPredmet).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pcbProfilna).BeginInit();
             SuspendLayout();
             // 
             // dgvPolozeniPredmeti
             // 
+            dgvPolozeniPredmeti.AllowUserToAddRows = false;
             dgvPolozeniPredmeti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPolozeniPredmeti.Columns.AddRange(new DataGridViewColumn[] { Predmet, Ocjena, DatumPolaganja });
-            dgvPolozeniPredmeti.Location = new Point(12, 78);
+            dgvPolozeniPredmeti.Columns.AddRange(new DataGridViewColumn[] { Predmet, DatumPolaganja, Ocjena });
+            dgvPolozeniPredmeti.Location = new Point(8, 198);
             dgvPolozeniPredmeti.Name = "dgvPolozeniPredmeti";
             dgvPolozeniPredmeti.RowTemplate.Height = 25;
             dgvPolozeniPredmeti.Size = new Size(424, 263);
@@ -60,13 +67,6 @@
             Predmet.HeaderText = "Predmet";
             Predmet.Name = "Predmet";
             // 
-            // Ocjena
-            // 
-            Ocjena.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Ocjena.DataPropertyName = "Ocjena";
-            Ocjena.HeaderText = "Ocjena";
-            Ocjena.Name = "Ocjena";
-            // 
             // DatumPolaganja
             // 
             DatumPolaganja.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -74,83 +74,116 @@
             DatumPolaganja.HeaderText = "Datum polaganja";
             DatumPolaganja.Name = "DatumPolaganja";
             // 
+            // Ocjena
+            // 
+            Ocjena.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Ocjena.DataPropertyName = "Ocjena";
+            Ocjena.HeaderText = "Ocjena";
+            Ocjena.Name = "Ocjena";
+            // 
             // lblPredmet
             // 
             lblPredmet.AutoSize = true;
-            lblPredmet.Location = new Point(12, 33);
+            lblPredmet.Location = new Point(12, 151);
             lblPredmet.Name = "lblPredmet";
             lblPredmet.Size = new Size(55, 15);
             lblPredmet.TabIndex = 1;
             lblPredmet.Text = "Predmet:";
             // 
-            // comboBox1
+            // cmbPredmeti
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 51);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 2;
+            cmbPredmeti.FormattingEnabled = true;
+            cmbPredmeti.Location = new Point(8, 171);
+            cmbPredmeti.Name = "cmbPredmeti";
+            cmbPredmeti.Size = new Size(121, 23);
+            cmbPredmeti.TabIndex = 2;
             // 
-            // comboBox2
+            // cmbOcjene
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(139, 51);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(88, 23);
-            comboBox2.TabIndex = 4;
+            cmbOcjene.FormattingEnabled = true;
+            cmbOcjene.Location = new Point(135, 171);
+            cmbOcjene.Name = "cmbOcjene";
+            cmbOcjene.Size = new Size(88, 23);
+            cmbOcjene.TabIndex = 4;
             // 
             // lblOcjena
             // 
             lblOcjena.AutoSize = true;
-            lblOcjena.Location = new Point(139, 33);
+            lblOcjena.Location = new Point(135, 153);
             lblOcjena.Name = "lblOcjena";
             lblOcjena.Size = new Size(47, 15);
             lblOcjena.TabIndex = 3;
             lblOcjena.Text = "Ocjena:";
             // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(234, 51);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
-            comboBox3.TabIndex = 5;
-            // 
             // lblDatumPolaganja
             // 
             lblDatumPolaganja.AutoSize = true;
-            lblDatumPolaganja.Location = new Point(234, 33);
+            lblDatumPolaganja.Location = new Point(230, 153);
             lblDatumPolaganja.Name = "lblDatumPolaganja";
             lblDatumPolaganja.Size = new Size(104, 15);
             lblDatumPolaganja.TabIndex = 6;
             lblDatumPolaganja.Text = "Datum Polaganja: ";
             // 
-            // button1
+            // btnDodaj
             // 
-            button1.Location = new Point(361, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 7;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnDodaj.Location = new Point(357, 170);
+            btnDodaj.Name = "btnDodaj";
+            btnDodaj.Size = new Size(75, 23);
+            btnDodaj.TabIndex = 7;
+            btnDodaj.Text = "Dodaj";
+            btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
+            // 
+            // dtmPolaganje
+            // 
+            dtmPolaganje.Location = new Point(228, 171);
+            dtmPolaganje.Name = "dtmPolaganje";
+            dtmPolaganje.Size = new Size(123, 23);
+            dtmPolaganje.TabIndex = 8;
+            // 
+            // errPolozeniPredmet
+            // 
+            errPolozeniPredmet.ContainerControl = this;
+            // 
+            // lblImePrezime
+            // 
+            lblImePrezime.AutoSize = true;
+            lblImePrezime.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblImePrezime.Location = new Point(135, 61);
+            lblImePrezime.Name = "lblImePrezime";
+            lblImePrezime.Size = new Size(0, 30);
+            lblImePrezime.TabIndex = 9;
+            // 
+            // pcbProfilna
+            // 
+            pcbProfilna.Location = new Point(8, 12);
+            pcbProfilna.Name = "pcbProfilna";
+            pcbProfilna.Size = new Size(121, 136);
+            pcbProfilna.SizeMode = PictureBoxSizeMode.StretchImage;
+            pcbProfilna.TabIndex = 10;
+            pcbProfilna.TabStop = false;
             // 
             // frmStudentiPredmeti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(444, 351);
-            Controls.Add(button1);
+            ClientSize = new Size(444, 473);
+            Controls.Add(pcbProfilna);
+            Controls.Add(lblImePrezime);
+            Controls.Add(dtmPolaganje);
+            Controls.Add(btnDodaj);
             Controls.Add(lblDatumPolaganja);
-            Controls.Add(comboBox3);
-            Controls.Add(comboBox2);
+            Controls.Add(cmbOcjene);
             Controls.Add(lblOcjena);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbPredmeti);
             Controls.Add(lblPredmet);
             Controls.Add(dgvPolozeniPredmeti);
             Name = "frmStudentiPredmeti";
             Text = "Uspijeh Student";
             Load += frmStudentiPredmeti_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPolozeniPredmeti).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errPolozeniPredmet).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pcbProfilna).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,15 +191,18 @@
         #endregion
 
         private DataGridView dgvPolozeniPredmeti;
-        private DataGridViewTextBoxColumn Predmet;
-        private DataGridViewTextBoxColumn Ocjena;
-        private DataGridViewTextBoxColumn DatumPolaganja;
         private Label lblPredmet;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox cmbPredmeti;
+        private ComboBox cmbOcjene;
         private Label lblOcjena;
-        private ComboBox comboBox3;
         private Label lblDatumPolaganja;
-        private Button button1;
+        private Button btnDodaj;
+        private DataGridViewTextBoxColumn Predmet;
+        private DataGridViewTextBoxColumn DatumPolaganja;
+        private DataGridViewTextBoxColumn Ocjena;
+        private DateTimePicker dtmPolaganje;
+        private ErrorProvider errPolozeniPredmet;
+        private Label lblImePrezime;
+        private PictureBox pcbProfilna;
     }
 }

@@ -26,7 +26,7 @@ namespace PRIII.WinForm.Studenti
         {
             UcitajStudente();
             //VarObj();
-            Dynamic();
+           // Dynamic();
             //AnonimniTipovi();
             //Linq();
         }
@@ -160,6 +160,7 @@ namespace PRIII.WinForm.Studenti
 
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
             Form forma = null;
 

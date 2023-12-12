@@ -45,7 +45,6 @@
             // 
             dgvStudenti.AllowUserToAddRows = false;
             dgvStudenti.AllowUserToDeleteRows = false;
-            dgvStudenti.AllowUserToOrderColumns = true;
             dgvStudenti.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { Indeks, Ime, Prezime, DatumRodjenja, Semestar, Aktivan, PolozeniPredmeti });
             dgvStudenti.Location = new Point(10, 50);
@@ -144,6 +143,7 @@
             PolozeniPredmeti.Resizable = DataGridViewTriState.True;
             PolozeniPredmeti.SortMode = DataGridViewColumnSortMode.Automatic;
             PolozeniPredmeti.Text = "Predmeti";
+            PolozeniPredmeti.UseColumnTextForButtonValue = true;
             // 
             // frmStudentiPretraga
             // 

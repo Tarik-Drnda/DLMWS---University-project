@@ -120,6 +120,10 @@
   <data name="AccountNotActive" xml:space="preserve">
     <value>vaš korisnicki nalog nije aktivan!</value>
   </data>
+  <data name="Duplicated Value" xml:space="preserve">
+    <value>Vrijednost koju ste odabrali se već nalazi u BP!</value>
+    <comment>Koristi se za duplicirane vrijednosti, InMemoryDB</comment>
+  </data>
   <data name="EmailDomain" xml:space="preserve">
     <value>@edu.fit.ba</value>
   </data>
