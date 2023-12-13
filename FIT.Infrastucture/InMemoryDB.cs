@@ -1,13 +1,33 @@
-﻿using PRIII___DATA;
+﻿using Microsoft.EntityFrameworkCore;
+using PRIII___DATA;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FIT.Infrastucture
 {
+    public class DLWMSDbContext : DbContext
+    {
+        private readonly string dbPutanja;// = "Data Source = E:\\DLWMS.db\\";
+        public DLWMSDbContext()
+        {
+            dbPutanja = ConfigurationManager.
+               ConnectionStrings["DLWMSBaza"].ConnectionString;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+          
+            optionsBuilder.UseSqlite(dbPutanja);
+        }
+
+        public DbSet<Predmet> Predmeti { get; set; }
+
+    }
+
     public class InMemoryDB : IEnumerable<Student>
     {
        public static List<Korisnik> Korisnici = GenerisiKorisnike();

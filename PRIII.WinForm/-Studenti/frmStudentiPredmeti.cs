@@ -41,7 +41,7 @@ namespace PRIII.WinForm._Studenti
         private void UcitajPodatke()
         {
             lblImePrezime.Text = $"{odabraniStudent.Indeks}, {odabraniStudent.Ime}, {odabraniStudent.Prezime}";
-            pcbProfilna.Image = odabraniStudent.slika;
+            pcbProfilna.Image = odabraniStudent.slika.ToImage();
         }
 
         private void UcitajOcjene()

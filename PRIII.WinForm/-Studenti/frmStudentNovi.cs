@@ -55,7 +55,7 @@ namespace PRIII.WinForm.Studenti
             cbAktivan.Checked=_std.Aktivan;
             cmbSemestar.SelectedIndex = _std.Semestar;
             txtPrezime.Text= _std.Prezime;
-            pbSlika.Image = _std.slika;
+            pbSlika.Image = _std.slika.ToImage();
             txtIndeks.Text= _std.Indeks;
         }
 
@@ -108,7 +108,7 @@ namespace PRIII.WinForm.Studenti
                 _std.Lozinka = txtLozinka.Text;
                 _std.Prezime = txtPrezime.Text;
                 _std.Semestar = (int)cmbSemestar.SelectedValue;
-                _std.slika = pbSlika.Image;
+                _std.slika = pbSlika.Image.ToByteArray();
                 _std.Ime = txtIme.Text;
 
                 if (_std.Id == 0)

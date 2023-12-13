@@ -15,14 +15,14 @@ namespace PRIII___DATA
         public string Indeks { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
-        public Image slika { get; set; }//
+        public byte[] slika { get; set; }//byte[]
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
         public bool Aktivan { get; set; }
         public int Semestar { get; set; } // semestarId
      
-        public int GradId { get; set; }
-        public Grad Grad { get; set; }
+        //public int GradId { get; set; }
+       // public Grad Grad { get; set; }
         public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
 
         public Student()
