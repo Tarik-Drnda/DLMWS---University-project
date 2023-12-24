@@ -24,6 +24,7 @@ namespace PRIII.WinForm.Studenti
             InitializeComponent();
             GenerisiBrojIndeksa();
             GenerisiLozinku();
+            UcitajSemestre();
             _std = std ?? new Student();
         }
 
@@ -56,7 +57,7 @@ namespace PRIII.WinForm.Studenti
             txtEmail.Text = _std.Email;
             txtLozinka.Text= _std.Lozinka;
             cbAktivan.Checked=_std.Aktivan;
-            cmbSemestar.SelectedIndex = _std.Semestar;
+            cmbSemestar.SelectedIndex = _std.SemestarId;
             txtPrezime.Text= _std.Prezime;
             pbSlika.Image = _std.Slika.ToImage();
             txtIndeks.Text= _std.Indeks;
@@ -64,9 +65,7 @@ namespace PRIII.WinForm.Studenti
 
         private void UcitajSemestre()
         {
-            cmbSemestar.DataSource = InMemoryDB.Semestri;
-            cmbSemestar.DisplayMember = "Oznaka";
-            cmbSemestar.ValueMember = "Id";
+            cmbSemestar.UcitajPodatke(baza.Semestri.ToList(), "Oznaka", "Id");
         }
 
         private void txtIme_TextChanged(object sender, EventArgs e)
@@ -110,7 +109,7 @@ namespace PRIII.WinForm.Studenti
                 _std.Indeks = txtIndeks.Text;
                 _std.Lozinka = txtLozinka.Text;
                 _std.Prezime = txtPrezime.Text;
-                _std.Semestar = (int)cmbSemestar.SelectedValue;
+                _std.SemestarId = (int)cmbSemestar.SelectedValue;
                 _std.Slika = pbSlika.Image.ToByteArray();
                 _std.Ime = txtIme.Text;
 

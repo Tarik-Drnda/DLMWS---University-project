@@ -43,7 +43,7 @@ namespace PRIII.WinForm
                             {
                                 MessageBox.Show($"{Kljucevi.Welcome} {korisnik}", Resursi.Get(Kljucevi.Info), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Aplikacija.PrijavljeniKorisnik = korisnik;
-                                var glavnaForma = new frmGlavna();
+                                var glavnaForma = new frmStudentiPretraga();
                                 glavnaForma.Show();
                             }
                             else

@@ -26,6 +26,7 @@ namespace FIT.Infrastucture
 
         public DbSet<Predmet> Predmeti { get; set; }
         public DbSet<Student> Studenti { get; set; }
+        public DbSet<Semestar> Semestri { get; set; }
 
     }
 
@@ -96,7 +97,7 @@ namespace FIT.Infrastucture
                    Lozinka = "admin",
                    Prezime = "Music",
                    DatumRodjenja = new DateTime(2000,2,2),
-                   Semestar = 1,
+                   SemestarId = 1,
                    Slika=null
                },
                new Student()
@@ -109,7 +110,7 @@ namespace FIT.Infrastucture
                    Lozinka = "admin",
                    Prezime = "Music",
                    DatumRodjenja = new DateTime(2000, 2, 2),
-                 Semestar = 1,
+                 SemestarId = 1,
                  Slika = null
            }
            };

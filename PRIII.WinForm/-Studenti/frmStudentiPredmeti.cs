@@ -49,37 +49,37 @@ namespace PRIII.WinForm._Studenti
         private void UcitajPolozenePredmete()
         {
             dgvPolozeniPredmeti.DataSource = null;
-           // dgvPolozeniPredmeti.DataSource = odabraniStudent.PolozeniPredmeti;
+            dgvPolozeniPredmeti.DataSource = odabraniStudent.PolozeniPredmeti;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            //if (ValidanUnos())
-            //{
-            //    var predmet = cmbPredmeti.SelectedItem as Predmet;
+            if (ValidanUnos())
+            {
+                var predmet = cmbPredmeti.SelectedItem as Predmet;
 
-            //    foreach (var p in odabraniStudent.PolozeniPredmeti)
-            //    {
-            //        if (predmet.Id == p.PredmetId)
-            //        {
-            //            MessageBox.Show($"{Resursi.Get(Kljucevi.DuplicatedValue)}", Resursi.Get(Kljucevi.Info), MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            return;
-            //        }
-            //    }
-            //    var polozeni = new PolozeniPredmet()
-            //    {
+                foreach (var p in odabraniStudent.PolozeniPredmeti)
+                {
+                    if (predmet.Id == p.Id)
+                    {
+                        MessageBox.Show($"{Resursi.Get(Kljucevi.DuplicatedValue)}", Resursi.Get(Kljucevi.Info), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                var polozeni = new PolozeniPredmet()
+                {
 
-            //        Id = odabraniStudent.PolozeniPredmeti.Count + 1,
-            //        DatumPolaganja = dtmPolaganje.Value,
-            //        Ocjena = int.Parse(cmbOcjene.Text),
-            //        Predmet = predmet,
-            //        PredmetId = predmet.Id,
+                    Id = odabraniStudent.PolozeniPredmeti.Count + 1,
+                    DatumPolaganja = dtmPolaganje.Value,
+                    Ocjena = int.Parse(cmbOcjene.Text),
+                    Predmet = predmet,
+                    PredmetId = predmet.Id,
 
-            //    };
-            //    odabraniStudent.PolozeniPredmeti.Add(polozeni);
-            //    UcitajPolozenePredmete();
+                };
+                odabraniStudent.PolozeniPredmeti.Add(polozeni);
+                UcitajPolozenePredmete();
 
-            //}
+            }
         }
         private bool ValidanUnos()
         {

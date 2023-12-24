@@ -13,5 +13,10 @@ namespace PRIII___DATA
         public string Opis { get; set; }
         public bool Aktivan { get; set; }
 
+
+        public override string ToString()
+        {
+            return $"{Oznaka}";
+        }
     }
 }

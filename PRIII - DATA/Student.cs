@@ -19,15 +19,18 @@ namespace PRIII___DATA
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
         public bool Aktivan { get; set; }
-        public int Semestar { get; set; } // semestarId
+
+        public int SemestarId { get; set; } // semestarId
+        public Semestar Semestar { get; set; }
+
 
         //public int GradId { get; set; }
         // public Grad Grad { get; set; }
-        // public List<Predmet> PolozeniPredmeti { get; set; }
+        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
 
         public Student()
         {
-            //   PolozeniPredmeti=new List<Predmet>();
+            PolozeniPredmeti = new List<PolozeniPredmet>();
         }
         public override string ToString()
         {

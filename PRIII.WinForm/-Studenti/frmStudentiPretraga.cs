@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FIT.Infrastucture;
+using Microsoft.EntityFrameworkCore;
 using PRIII.WinForm._Studenti;
 using PRIII___DATA;
 
@@ -144,10 +145,11 @@ namespace PRIII.WinForm.Studenti
             obj.NepostojecaMetoda();
         }
 
-        private void UcitajStudente()
+        private void UcitajStudente(List<Student> studenti=null)
         {
+            var list = baza.Studenti.Include(s=> s.Semestar).ToList();
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = baza.Studenti.ToList();
+            dgvStudenti.DataSource = list;
         }
 
         private void btnStudentNovi_Click(object sender, EventArgs e)
