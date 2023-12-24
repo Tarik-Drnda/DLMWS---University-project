@@ -16,7 +16,7 @@ namespace PRIII.WinForm
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             var frmPr=new frmPrijava();
-            Application.Run(new frmPredmeti());
+            Application.Run(new frmPrijava());
         }
     }
 }

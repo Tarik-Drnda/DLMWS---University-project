@@ -16,6 +16,7 @@ namespace PRIII.WinForm.Studenti
 {
     public partial class frmStudentiPretraga : Form
     {
+        DLWMSDbContext baza = new DLWMSDbContext();
         public frmStudentiPretraga()
         {
             InitializeComponent();
@@ -146,7 +147,7 @@ namespace PRIII.WinForm.Studenti
         private void UcitajStudente()
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = InMemoryDB.Studenti;
+            dgvStudenti.DataSource = baza.Studenti.ToList();
         }
 
         private void btnStudentNovi_Click(object sender, EventArgs e)
@@ -179,7 +180,7 @@ namespace PRIII.WinForm.Studenti
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             var filter = txtFilter.Text.ToLower();
-            var rezultat = InMemoryDB.Studenti.Where(Sadrzi).ToList();
+            var rezultat = baza.Studenti.Where(Sadrzi).ToList();
 
             dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = rezultat;

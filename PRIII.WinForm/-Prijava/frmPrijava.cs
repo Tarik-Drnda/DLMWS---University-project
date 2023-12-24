@@ -1,5 +1,6 @@
 ﻿
 using FIT.Infrastucture;
+using PRIII.WinForm.Studenti;
 using PRIII___DATA;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ namespace PRIII.WinForm
 
         private void lblRegistracija_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var registracija = new frmRegistracija();
+            var registracija = new frmStudentNovi();
             registracija.ShowDialog();
         }
 
