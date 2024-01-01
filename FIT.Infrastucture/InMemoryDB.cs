@@ -10,25 +10,6 @@ using System.Threading.Tasks;
 
 namespace FIT.Infrastucture
 {
-    public class DLWMSDbContext : DbContext
-    {
-        private readonly string dbPutanja;// = "Data Source = E:\\DLWMS.db\\";
-        public DLWMSDbContext()
-        {
-            dbPutanja = ConfigurationManager.
-               ConnectionStrings["DLWMSBaza"].ConnectionString;
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-          
-            optionsBuilder.UseSqlite(dbPutanja);
-        }
-
-        public DbSet<Predmet> Predmeti { get; set; }
-        public DbSet<Student> Studenti { get; set; }
-        public DbSet<Semestar> Semestri { get; set; }
-
-    }
 
     public class InMemoryDB : IEnumerable<Student>
     {

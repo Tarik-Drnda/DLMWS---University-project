@@ -1,5 +1,8 @@
-﻿namespace PRIII___DATA
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PRIII___DATA
 {
+    [Table ("PolozeniPredmeti")]
     public class PolozeniPredmet
     {
         public int Id { get; set; }
@@ -11,6 +14,8 @@
         public Student Student { get; set; }
         public Predmet Predmet { get; set; }
         public string Napomena { get; set; }
+
+        
 
     }
 }

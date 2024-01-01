@@ -26,11 +26,13 @@ namespace PRIII___DATA
 
         //public int GradId { get; set; }
         // public Grad Grad { get; set; }
-        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        
+
+        public ICollection<Uloga> Uloga { get; set; } = new HashSet<Uloga>();
 
         public Student()
         {
-            PolozeniPredmeti = new List<PolozeniPredmet>();
+           
         }
         public override string ToString()
         {

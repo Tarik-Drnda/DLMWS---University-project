@@ -68,6 +68,7 @@ namespace PRIII.WinForm
         {
             var registracija = new frmStudentNovi();
             registracija.ShowDialog();
+            
         }
 
         private void label3_Click(object sender, EventArgs e)

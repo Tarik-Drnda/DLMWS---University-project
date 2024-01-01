@@ -11,7 +11,7 @@ namespace PRIII.WinForm
         }
         public static void UcitajPodatke<T>(this ComboBox comboBox,List<T> dataSoruce,string displayMember,string ValueMember)
         {
-            comboBox.DataSource = InMemoryDB.Predmeti;
+            comboBox.DataSource = dataSoruce;
             comboBox.DisplayMember = displayMember;
             comboBox.ValueMember = ValueMember;
         }

@@ -43,6 +43,9 @@
             errPolozeniPredmet = new ErrorProvider(components);
             lblImePrezime = new Label();
             pcbProfilna = new PictureBox();
+            txtNapomena = new TextBox();
+            lblNapomena = new Label();
+            btnPrintaj = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPolozeniPredmeti).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errPolozeniPredmet).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcbProfilna).BeginInit();
@@ -163,11 +166,40 @@
             pcbProfilna.TabIndex = 10;
             pcbProfilna.TabStop = false;
             // 
+            // txtNapomena
+            // 
+            txtNapomena.Location = new Point(139, 128);
+            txtNapomena.Name = "txtNapomena";
+            txtNapomena.Size = new Size(293, 23);
+            txtNapomena.TabIndex = 11;
+            // 
+            // lblNapomena
+            // 
+            lblNapomena.AutoSize = true;
+            lblNapomena.Location = new Point(363, 110);
+            lblNapomena.Name = "lblNapomena";
+            lblNapomena.Size = new Size(69, 15);
+            lblNapomena.TabIndex = 12;
+            lblNapomena.Text = "Napomena:";
+            // 
+            // btnPrintaj
+            // 
+            btnPrintaj.Location = new Point(328, 467);
+            btnPrintaj.Name = "btnPrintaj";
+            btnPrintaj.Size = new Size(104, 23);
+            btnPrintaj.TabIndex = 13;
+            btnPrintaj.Text = "Printaj uvjerenje";
+            btnPrintaj.UseVisualStyleBackColor = true;
+            btnPrintaj.Click += btnPrintaj_Click;
+            // 
             // frmStudentiPredmeti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(444, 473);
+            ClientSize = new Size(444, 499);
+            Controls.Add(btnPrintaj);
+            Controls.Add(lblNapomena);
+            Controls.Add(txtNapomena);
             Controls.Add(pcbProfilna);
             Controls.Add(lblImePrezime);
             Controls.Add(dtmPolaganje);
@@ -204,5 +236,8 @@
         private ErrorProvider errPolozeniPredmet;
         private Label lblImePrezime;
         private PictureBox pcbProfilna;
+        private Label lblNapomena;
+        private TextBox txtNapomena;
+        private Button btnPrintaj;
     }
 }

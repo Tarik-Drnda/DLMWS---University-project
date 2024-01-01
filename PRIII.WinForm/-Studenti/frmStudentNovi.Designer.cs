@@ -53,14 +53,19 @@
             ofdOdabirSlike = new OpenFileDialog();
             btnOdabirSlike = new Button();
             errNoviStudent = new ErrorProvider(components);
+            dgvUloge = new DataGridView();
+            Oznaka = new DataGridViewTextBoxColumn();
+            btnDodajUlogu = new Button();
+            cmbUloge = new ComboBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errNoviStudent).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUloge).BeginInit();
             SuspendLayout();
             // 
             // btnSpasi
             // 
-            btnSpasi.Location = new Point(384, 205);
+            btnSpasi.Location = new Point(878, 306);
             btnSpasi.Margin = new Padding(3, 2, 3, 2);
             btnSpasi.Name = "btnSpasi";
             btnSpasi.Size = new Size(82, 22);
@@ -75,7 +80,6 @@
             groupBox2.Controls.Add(label7);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(dtpDatumRodjenja);
-            groupBox2.Controls.Add(btnSpasi);
             groupBox2.Controls.Add(cmbSemestar);
             groupBox2.Controls.Add(cbAktivan);
             groupBox2.Controls.Add(txtEmail);
@@ -289,12 +293,55 @@
             // 
             errNoviStudent.ContainerControl = this;
             // 
+            // dgvUloge
+            // 
+            dgvUloge.AllowUserToAddRows = false;
+            dgvUloge.AllowUserToDeleteRows = false;
+            dgvUloge.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUloge.Columns.AddRange(new DataGridViewColumn[] { Oznaka });
+            dgvUloge.Location = new Point(710, 129);
+            dgvUloge.Name = "dgvUloge";
+            dgvUloge.ReadOnly = true;
+            dgvUloge.RowTemplate.Height = 25;
+            dgvUloge.Size = new Size(250, 134);
+            dgvUloge.TabIndex = 22;
+            // 
+            // Oznaka
+            // 
+            Oznaka.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Oznaka.DataPropertyName = "Naziv";
+            Oznaka.HeaderText = "Oznaka";
+            Oznaka.Name = "Oznaka";
+            Oznaka.ReadOnly = true;
+            // 
+            // btnDodajUlogu
+            // 
+            btnDodajUlogu.Location = new Point(885, 94);
+            btnDodajUlogu.Name = "btnDodajUlogu";
+            btnDodajUlogu.Size = new Size(75, 23);
+            btnDodajUlogu.TabIndex = 24;
+            btnDodajUlogu.Text = "Dodaj Ulogu";
+            btnDodajUlogu.UseVisualStyleBackColor = true;
+            btnDodajUlogu.Click += btnDodajUlogu_Click;
+            // 
+            // cmbUloge
+            // 
+            cmbUloge.FormattingEnabled = true;
+            cmbUloge.Location = new Point(710, 94);
+            cmbUloge.Name = "cmbUloge";
+            cmbUloge.Size = new Size(169, 23);
+            cmbUloge.TabIndex = 25;
+            // 
             // frmStudentNovi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 341);
+            ClientSize = new Size(972, 341);
+            Controls.Add(cmbUloge);
+            Controls.Add(btnDodajUlogu);
+            Controls.Add(dgvUloge);
             Controls.Add(btnOdabirSlike);
+            Controls.Add(btnSpasi);
             Controls.Add(pbSlika);
             Controls.Add(groupBox2);
             Controls.Add(lblFitNaslov);
@@ -306,6 +353,7 @@
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();
             ((System.ComponentModel.ISupportInitialize)errNoviStudent).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUloge).EndInit();
             ResumeLayout(false);
         }
 
@@ -334,5 +382,9 @@
         private Button btnOdabirSlike;
         private Button btnNovaLozinka;
         private ErrorProvider errNoviStudent;
+        private Button btnDodajUlogu;
+        private DataGridView dgvUloge;
+        private DataGridViewTextBoxColumn Oznaka;
+        private ComboBox cmbUloge;
     }
 }

@@ -14,18 +14,26 @@ using PRIII___DATA;
 
 namespace PRIII.WinForm.Studenti
 {
-    
+
     public partial class frmStudentNovi : Form
     {
         DLWMSDbContext baza = new DLWMSDbContext();
         private Student _std;
-        public frmStudentNovi(Student std=null)
+        public frmStudentNovi(Student std = null)
         {
             InitializeComponent();
             GenerisiBrojIndeksa();
             GenerisiLozinku();
             UcitajSemestre();
+
+            dgvUloge.AutoGenerateColumns = false;
             _std = std ?? new Student();
+        }
+
+        private void UcitajUloge()
+        {
+
+            cmbUloge.UcitajPodatke(baza.Uloge.ToList(), "Naziv", "Id");
         }
 
         private void GenerisiLozinku()
@@ -44,23 +52,34 @@ namespace PRIII.WinForm.Studenti
         private void frmStudentNovi_Load(object sender, EventArgs e)
         {
             UcitajSemestre();
-            if(_std.Id!=0)
+            if (_std.Id != 0)
             {
                 UcitajPodatkeOStudentu();
             }
+            UcitajUloge();
         }
 
         private void UcitajPodatkeOStudentu()
         {
             txtIme.Text = _std.Ime;
-            dtpDatumRodjenja.Value=_std.DatumRodjenja;
+            dtpDatumRodjenja.Value = _std.DatumRodjenja;
             txtEmail.Text = _std.Email;
-            txtLozinka.Text= _std.Lozinka;
-            cbAktivan.Checked=_std.Aktivan;
-            cmbSemestar.SelectedIndex = _std.SemestarId;
-            txtPrezime.Text= _std.Prezime;
+            txtLozinka.Text = _std.Lozinka;
+            cbAktivan.Checked = _std.Aktivan;
+            cmbSemestar.SelectedValue = _std.SemestarId;
+            txtPrezime.Text = _std.Prezime;
             pbSlika.Image = _std.Slika.ToImage();
-            txtIndeks.Text= _std.Indeks;
+            txtIndeks.Text = _std.Indeks;
+
+            UcitajUlogeStudenta();
+        }
+
+        private void UcitajUlogeStudenta()
+        {
+            dgvUloge.DataSource = null;
+
+            dgvUloge.DataSource = _std.Uloga.ToList();
+
         }
 
         private void UcitajSemestre()
@@ -118,14 +137,14 @@ namespace PRIII.WinForm.Studenti
                     //_std.Id = InMemoryDB.Studenti.Count+1;
                     //InMemoryDB.Studenti.Add(_std);
                     baza.Studenti.Add(_std);
-                   
+
                 }
                 else
                 {
                     baza.Entry(_std).State = EntityState.Modified;
                 }
                 baza.SaveChanges();
-                this.DialogResult=DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 Close();
             }
         }
@@ -137,8 +156,16 @@ namespace PRIII.WinForm.Studenti
                    Validator.ProvjeriUnos(txtEmail, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
                    Validator.ProvjeriUnos(cmbSemestar, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
                    Validator.ProvjeriUnos(txtLozinka, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
-                   Validator.ProvjeriUnos(txtIndeks, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue))  &&
+                   Validator.ProvjeriUnos(txtIndeks, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue)) &&
                    Validator.ProvjeriUnos(pbSlika, errNoviStudent, Resursi.Get(Kljucevi.MandatoryValue));
+
+        }
+
+        private void btnDodajUlogu_Click(object sender, EventArgs e)
+        {
+            var uloga=cmbUloge.SelectedItem as Uloga;
+            _std.Uloga.Add(uloga);
+            UcitajUlogeStudenta();
 
         }
     }

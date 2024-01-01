@@ -20,6 +20,7 @@ namespace PRIII.WinForm.Studenti
         DLWMSDbContext baza = new DLWMSDbContext();
         public frmStudentiPretraga()
         {
+            
             InitializeComponent();
             dgvStudenti.AutoGenerateColumns = false;
         }
@@ -147,7 +148,8 @@ namespace PRIII.WinForm.Studenti
 
         private void UcitajStudente(List<Student> studenti=null)
         {
-            var list = baza.Studenti.Include(s=> s.Semestar).ToList();
+            var list = baza.Studenti.Include(s => s.Semestar).Include(s=> s.Uloga).ToList();
+           
             dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = list;
         }
