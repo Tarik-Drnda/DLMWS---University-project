@@ -1,4 +1,6 @@
 using PRIII.WinForm._P8;
+using PRIII.WinForm._Prijava;
+using PRIII.WinForm.Asinhrono;
 using PRIII.WinForm.Izvjestaji;
 using PRIII.WinForm.Predmeti;
 using PRIII.WinForm.Studenti;
@@ -17,7 +19,7 @@ namespace PRIII.WinForm
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             var frmPr=new frmPrijava();
-            Application.Run(new frmStudentiPretraga());
+            Application.Run(new frmPingTest());
         }
     }
 }
